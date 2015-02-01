@@ -41,6 +41,8 @@ mkdir -p $RPM_BUILD_ROOT/%{_datadir}/myspell/dicts
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/hunspell
 cp -p en_*.dic en_*.aff $RPM_BUILD_ROOT/%{_datadir}/myspell/dicts
 cp -p en_*.dic en_*.aff $RPM_BUILD_ROOT/%{_datadir}/myspell/dicts
+mkdir -p %{buildroot}/usr/share/license
+cp LICENSE %{buildroot}/usr/share/license/%{name}
 
 pushd $RPM_BUILD_ROOT/%{_datadir}/myspell/dicts
 # Make links to 'usr/share/hunspell' from the 'myspell/dicts' directory.
@@ -66,6 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README_en_GB.txt
 %{_datadir}/myspell/dicts/*
 %{_datadir}/hunspell/*
+/usr/share/license/%{name}
 
 %changelog
 * Tue Sep 4 2012 Michal Roj <m.roj@samsung.com> - second version
